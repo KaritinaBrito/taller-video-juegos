@@ -20,6 +20,14 @@ body {
     border-radius: 8px;
     background-color: #feff9d;
   }
+  .information {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    font-size: 2rem;
+    align-items: center;
+    justify-items: center
+
+  }
   
   .btns {
     display: flex;
@@ -29,7 +37,7 @@ body {
     width: 100%;
   }
   
-  button {
+  .btnsMove {
     background-color: #fdef05;
     border-radius: 8px;
     border-color: #ff6600;
@@ -38,10 +46,15 @@ body {
     padding: 5px 20px;
     width: 100px;
   }
-  button:not(:last-child) {
+  .btnsMove:not(:last-child) {
     margin-right: 10px;
   }
-  
+  .restarting button{
+    background-color: #fdef05;
+    border-color: #ff6600;   
+    height: 50px;
+    border-radius: 50%;
+  }
   .messages {
     display: flex;
     flex-wrap: wrap;

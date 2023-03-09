@@ -12,18 +12,24 @@
         <canvas id="game"></canvas>
 
         <div class="btns">
-            <button id="up">Arriba</button>
-            <button id="left">Izquierda</button>
-            <button id="right">Derecha</button>
-            <button id="down">Abajo</button>    
+            <button class="btnsMove" id="up">Arriba</button>
+            <button class="btnsMove"id="left">Izquierda</button>
+            <button class="btnsMove"id="right">Derecha</button>
+            <button class="btnsMove"id="down">Abajo</button>    
         </div>
-
-        <div class="messages">
-            <p>Vidas: <span id="lives"></span></p>
-            <p>Tiempo: <span id="time"></span> ⏱</p>
-            <p>Record: <span id="record"></span> ⏱</p>
-            <p id="result"> </p>
+        <div class="information">
+            <div class="messages">
+                <p>Vidas: <span id="lives"></span></p>
+                <p>Tiempo: <span id="time"></span> ⏱</p>
+                <p>Record: <span id="record"></span> ⏱</p>
+                <p id="result"> </p>
+            </div>
+    
+            <div class="restarting">
+                <button id="btnReload ">Reiniciar</button>
+            </div>
         </div>
+        
     </div>
 <script src="./maps.js"></script>
 <script src="./game.js"></script>

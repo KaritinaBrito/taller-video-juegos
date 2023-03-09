@@ -9,6 +9,7 @@ const spanLive = document.querySelector('#lives')
 const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
 const pResult = document.querySelector('#result');
+const btnReload = document.querySelector('#btnReload');
 
 
 let canvasSize;
@@ -34,12 +35,13 @@ window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 
 
+
 function setCanvasSize (){    
 
     if(window.innerHeight > window.innerWidth){
-        canvasSize = window.innerWidth * 0.7;
+        canvasSize = window.innerWidth * 0.8;
     } else {
-        canvasSize = window.innerHeight * 0.7;
+        canvasSize = window.innerHeight * 0.8;
     }
     canvasSize = Number(canvasSize.toFixed(0));
     canvas.setAttribute('width', canvasSize);
@@ -132,7 +134,7 @@ function gameWin(){
         pResult.innerHTML = "Primer record!"
     }
     console.log({recordTime});
-
+    
 }
 function showLives(){
     const heartArray = Array(lives).fill(emojis['HEART']);
@@ -144,6 +146,9 @@ function showLives(){
 }
 function showTime(){
     spanTime.innerHTML = Date.now() - timeStart;
+    if(levelFail){
+        
+    }
 }
 function showRecord(){
     spanRecord.innerHTML = localStorage.getItem('record_time');
@@ -162,6 +167,7 @@ function levelFail(){
 
     
 }
+
 function movePlayer(){
     const giftColisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
     const giftColisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
@@ -194,6 +200,7 @@ btnUp.addEventListener('click', moveUp);
 btnDown.addEventListener('click', moveDown);
 btnRight.addEventListener('click', moveRight);
 btnLeft.addEventListener('click', moveLeft);
+btnReload.addEventListener('click', reload);
 
 
 function movebyKeys(event){
@@ -248,3 +255,14 @@ function moveLeft(){
     }
  
 };
+function reload(){
+   if(btnReload){
+    level = 0;
+    lives = 3;
+    timeStart = undefined;
+   }
+   playerPosition.x = undefined;
+   playerPosition.y = undefined;
+   startGame();
+    
+}
