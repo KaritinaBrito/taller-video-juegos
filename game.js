@@ -8,7 +8,7 @@ const btnLeft = document.querySelector('#left');
 const spanLive = document.querySelector('#lives')
 const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
-const pRecult = document.querySelector('#result');
+const pResult = document.querySelector('#result');
 
 
 let canvasSize;
@@ -37,15 +37,18 @@ window.addEventListener('resize', setCanvasSize);
 function setCanvasSize (){    
 
     if(window.innerHeight > window.innerWidth){
-        canvasSize = window.innerWidth * 0.8;
+        canvasSize = window.innerWidth * 0.7;
     } else {
-        canvasSize = window.innerHeight * 0.8;
+        canvasSize = window.innerHeight * 0.7;
     }
-
+    canvasSize = Number(canvasSize.toFixed(0));
     canvas.setAttribute('width', canvasSize);
     canvas.setAttribute('height', canvasSize);
 
     elementSize= canvasSize/10;    
+
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
 
     startGame();
 }
@@ -120,12 +123,13 @@ function gameWin(){
     if(recordTime){        
         if(recordTime >= playerTime){
             localStorage.setItem('record_time', playerTime);
-            console.log('Nuevo record de tiempo!!')
+            pResult.innerHTML = "Superaste el record!!!"
         } else {
-            console.log('No supertaste el tiempo record!')
+            pResult.innerHTML ='No supertaste el tiempo record!';
         }
     } else {
         localStorage.setItem('record_time', playerTime);
+        pResult.innerHTML = "Primer record!"
     }
     console.log({recordTime});
 
